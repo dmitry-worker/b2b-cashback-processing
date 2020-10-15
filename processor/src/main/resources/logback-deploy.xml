@@ -1,0 +1,23 @@
+<configuration debug="true">
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/processor.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/processor.%d{yyyy-MM}.log.gz</fileNamePattern>
+            <maxHistory>12</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%-5level %d{yyyy.MM.dd HH:mm:ss.SSS} %marker %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="com.noproject.service.TxnSubscriberService" level="DEBUG" />
+    <logger name="com.noproject.common.domain.service.CashbackTransactionDataService" level="DEBUG" />
+
+    <root level="INFO">
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>

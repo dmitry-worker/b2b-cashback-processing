@@ -1,0 +1,7 @@
+target
+.idea
+.DS_Store
+log
+**/*.iml
+test.sh
+lib

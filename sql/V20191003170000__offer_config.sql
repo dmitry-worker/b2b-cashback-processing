@@ -1,0 +1,1 @@
+update config set value = '{"baseUrl": "http://localhost:8500/track"}' where key = 'offers';

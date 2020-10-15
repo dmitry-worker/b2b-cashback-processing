@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  rabbit:
+    image: "rabbitmq:3.8-rc-management-alpine"
+    environment:
+      - "RABBITMQ_USE_LONGNAME=true"
+      - "RABBITMQ_LOGS=/var/log/rabbitmq/rabbit.log"
+      - "RABBITMQ_DEFAULT_USER=rabbit"
+      - "RABBITMQ_DEFAULT_PASS=rabbit"
+    ports:
+      - 8000:8000
+      - 4369:4369
+      - 5672:5672
+      - 15672:15672
+      - 25672:25672
+      - 35197:35197
+  postgres:
+    build:
+      context: "./docker/postgres/"
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=postgres
+      - TEST_DB=test

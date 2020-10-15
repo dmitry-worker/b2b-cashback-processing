@@ -1,0 +1,3 @@
+-J-Xss200M
+-J-XX:+CMSClassUnloadingEnabled
+-J-XX:MaxMetaspaceSize=384M
